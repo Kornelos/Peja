@@ -7,7 +7,7 @@ const genius = new Genius(accessToken);
 
 
 const http = require('http');
-const hostname = process.env.YOUR_HOST || 'localhost';
+const hostname = process.env.YOUR_HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3000;
 
 // genius API does not have an artist entrypoint.
