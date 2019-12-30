@@ -8,6 +8,7 @@ const genius = new Genius(accessToken);
 
 const http = require('http');
 const hostname = process.env.YOUR_HOST || '0.0.0.0';
+//const hostname = 'localhost';
 const PORT = process.env.PORT || 3000;
 
 // genius API does not have an artist entrypoint.
@@ -51,9 +52,11 @@ function parseSongHTML(htmlText) {
   const $ = cheerio.load(htmlText);
   const lyrics = $('.lyrics').text();
   const releaseDate = $('release-date .song_info-info').text();
+  const title = $('.song_body-lyrics > h2').text().replace(' Lyrics', '');
   return {
     lyrics,
     releaseDate,
+      title,
   }
 }
 
@@ -71,9 +74,18 @@ function getPeja(completionHandler) {
                     const randomNumber = Math.floor(Math.random() * 51);
                     genius.getSongLyrics(urls[randomNumber])
                         .then(text => {
-                            console.log(text)
-                            completionHandler(text.lyrics.toString());
+                            const str = text.lyrics.toString();
+                          //  const lines = str.replace(/\.+/g,'.|').replace(/\?/g,'?|').replace(/\!/g,'!|').split("|");
+                            const lines = str.split('\n');
+                            // console.log(lines.length);
+                            // console.log(lines);
+                            let ret = '';
+                            while(ret === ''){
+                                ret = lines[Math.floor(Math.random() * lines.length)];
+                            }
+                            completionHandler(text.title, ret);
                         })
+                        .catch(err => console.error(err));
                 })
                 .catch(err => console.error(err));
 
@@ -85,10 +97,12 @@ function getPeja(completionHandler) {
 
 const server = http.createServer((req, res) => {
 
-  getPeja(function (text) {
+  getPeja(function (title, text) {
       res.statusCode = 200;
      // res.setHeader('Content-Type', 'text/plain');
       res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
+      let body = '<h2>'+ title +'</h2>\n';
+      res.write(body, "utf-8");
       res.end(text);
   })
 });
