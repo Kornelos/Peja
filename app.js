@@ -1,6 +1,6 @@
 const Genius = require('genius-api');
 const fetch = require("node-fetch");
-
+const querystring = require('querystring');
 const accessToken = process.env.GENIUS_TOKEN;
 
 const genius = new Genius(accessToken);
@@ -61,8 +61,8 @@ function parseSongHTML(htmlText) {
 }
 
 //const genius = new Genius(accessToken)
-function getPeja(completionHandler) {
-    genius.getArtistIdByName('Peja')
+function getPeja(artist, completionHandler) {
+    genius.getArtistIdByName(artist)
         .then(artistId => {
             genius.songsByArtist(artistId, {
                 per_page: 50,
@@ -76,11 +76,11 @@ function getPeja(completionHandler) {
                         .then(text => {
                             const str = text.lyrics.toString();
                           //  const lines = str.replace(/\.+/g,'.|').replace(/\?/g,'?|').replace(/\!/g,'!|').split("|");
-                            const lines = str.split('\n');
+                            const lines = str.replace(/\[.*\]/g,'').split('\n');
                             // console.log(lines.length);
                             // console.log(lines);
                             let ret = '';
-                            while(ret === ''){
+                            while(ret.trim() === ''){
                                 ret = lines[Math.floor(Math.random() * lines.length)];
                             }
                             completionHandler(text.title, ret);
@@ -96,8 +96,15 @@ function getPeja(completionHandler) {
 
 
 const server = http.createServer((req, res) => {
+   // console.log(querystring.parse(req.url));
+    let parsedUrlQuery = querystring.parse(req.url.replace('/',''));
+    //console.log(artist.artist);
+    let artist = '';
+   if(parsedUrlQuery.artist === undefined || parsedUrlQuery.artist === '')
+        artist = 'Peja';
+   else  artist = parsedUrlQuery.artist;
 
-  getPeja(function (title, text) {
+  getPeja(artist, function (title, text) {
       res.statusCode = 200;
      // res.setHeader('Content-Type', 'text/plain');
       res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});

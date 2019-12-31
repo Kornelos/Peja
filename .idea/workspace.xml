@@ -61,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1577737171843</updated>
       <workItem from="1577737178229" duration="9101000" />
+      <workItem from="1577826050175" duration="1169000" />
     </task>
     <servers />
   </component>
@@ -88,22 +89,22 @@
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
     <state x="732" y="223" key="FileChooserDialogImpl/0.0.1920.1052@0.0.1920.1052" timestamp="1577737434933" />
-    <state width="1890" height="260" key="GridCell.Tab.0.bottom" timestamp="1577746591780">
+    <state width="1890" height="260" key="GridCell.Tab.0.bottom" timestamp="1577827057853">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
-    <state width="1890" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1052@0.0.1920.1052" timestamp="1577746591780" />
-    <state width="1890" height="260" key="GridCell.Tab.0.center" timestamp="1577746591780">
+    <state width="1890" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1052@0.0.1920.1052" timestamp="1577827057853" />
+    <state width="1890" height="260" key="GridCell.Tab.0.center" timestamp="1577827057853">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
-    <state width="1890" height="260" key="GridCell.Tab.0.center/0.0.1920.1052@0.0.1920.1052" timestamp="1577746591780" />
-    <state width="1890" height="260" key="GridCell.Tab.0.left" timestamp="1577746591779">
+    <state width="1890" height="260" key="GridCell.Tab.0.center/0.0.1920.1052@0.0.1920.1052" timestamp="1577827057853" />
+    <state width="1890" height="260" key="GridCell.Tab.0.left" timestamp="1577827057852">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
-    <state width="1890" height="260" key="GridCell.Tab.0.left/0.0.1920.1052@0.0.1920.1052" timestamp="1577746591779" />
-    <state width="1890" height="260" key="GridCell.Tab.0.right" timestamp="1577746591780">
+    <state width="1890" height="260" key="GridCell.Tab.0.left/0.0.1920.1052@0.0.1920.1052" timestamp="1577827057852" />
+    <state width="1890" height="260" key="GridCell.Tab.0.right" timestamp="1577827057853">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
-    <state width="1890" height="260" key="GridCell.Tab.0.right/0.0.1920.1052@0.0.1920.1052" timestamp="1577746591780" />
+    <state width="1890" height="260" key="GridCell.Tab.0.right/0.0.1920.1052@0.0.1920.1052" timestamp="1577827057853" />
     <state width="1890" height="323" key="GridCell.Tab.1.bottom" timestamp="1577746066769">
       <screen x="0" y="0" width="1920" height="1052" />
     </state>
@@ -163,13 +164,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app.js</url>
           <line>84</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app.js</url>
           <line>78</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
